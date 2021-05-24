@@ -1,0 +1,31 @@
+{%extends "blog/base.html"%} {%load crispy_forms_tags%}{% load socialaccount %} {%block content%}
+<div class="container pt-5" style="width:50%;">
+    <div class="card">
+        <div class="card-body">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom mb-4 text-center"><em>Log in</em></legend>
+                    {{form|crispy}}
+                </fieldset>
+                <div class="form-group">
+                    <button class="btn btn-outline-info" type="submit" style="width: 100%;">Log In</button>
+                </div>
+                <div class="form-group">
+                    <!--  <a href="{% provider_login_url 'google' %}">
+                        <div id="my-signin2"></div>
+                    </a>-->
+                    <a href="{% provider_login_url 'google' %}">Login with Google</a>
+                </div>
+
+
+            </form>
+            <div class="border-top pt-3">
+                <small class="text-muted">
+                    New User?<a href="{% url 'register'%}" class="ml-2">Sign Up</a>
+                </small>
+            </div>
+        </div>
+    </div>
+</div>
+{%endblock content%}
