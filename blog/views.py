@@ -51,7 +51,7 @@ class PostUpdateView(LoginRequiredMixin,UserPassesTestMixin,UpdateView):
         if self.request.user == post.author:
             return True
         return False
-#Creating the delte view
+#Creating the delete view
 class PostDeleteView(LoginRequiredMixin,UserPassesTestMixin,DeleteView):
     model = Post
     #Redirecting the user after deleting the post
